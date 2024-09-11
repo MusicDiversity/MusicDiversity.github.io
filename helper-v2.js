@@ -1,13 +1,14 @@
 const numPerPage = 10;
 
 const models = [
-  'musiclm-',
-  'musicrlhf-r-',
-  'musicrlhf-u-',
-  'musicrlhf-ru-',
+  'base-',
+  'base_cfg_gamma_3-',
+  'beta_0-',
+  'beta_15-',
+  'lerp_5050-',
 ];
 
-const numExamples = 2
+const numExamples = 50
 
 function createAudioHTML(path, loop=false) {
   const loop_str = (loop) ? "loop" : "";
@@ -53,18 +54,33 @@ function generateTable(tableId, page) {
     let audioCell1 = row.insertCell(1);
     audioCell1.innerHTML = createAudioHTML(`${prefix}${models[0]}${i}-0.wav`);
     audioCell1.innerHTML += createAudioHTML(`${prefix}${models[0]}${i}-1.wav`);
+    audioCell1.innerHTML += createAudioHTML(`${prefix}${models[0]}${i}-2.wav`);
+    audioCell1.innerHTML += createAudioHTML(`${prefix}${models[0]}${i}-3.wav`);
+
 
     let audioCell2 = row.insertCell(2);
     audioCell2.innerHTML = createAudioHTML(`${prefix}${models[1]}${i}-0.wav`);
     audioCell2.innerHTML += createAudioHTML(`${prefix}${models[1]}${i}-1.wav`);
+    audioCell2.innerHTML += createAudioHTML(`${prefix}${models[1]}${i}-2.wav`);
+    audioCell2.innerHTML += createAudioHTML(`${prefix}${models[1]}${i}-3.wav`);
 
     let audioCell3 = row.insertCell(3);
     audioCell3.innerHTML = createAudioHTML(`${prefix}${models[2]}${i}-0.wav`);
     audioCell3.innerHTML += createAudioHTML(`${prefix}${models[2]}${i}-1.wav`);
+    audioCell3.innerHTML += createAudioHTML(`${prefix}${models[2]}${i}-2.wav`);
+    audioCell3.innerHTML += createAudioHTML(`${prefix}${models[2]}${i}-3.wav`);
 
     let audioCell4 = row.insertCell(4);
     audioCell4.innerHTML = createAudioHTML(`${prefix}${models[3]}${i}-0.wav`);
     audioCell4.innerHTML += createAudioHTML(`${prefix}${models[3]}${i}-1.wav`);
+    audioCell4.innerHTML += createAudioHTML(`${prefix}${models[3]}${i}-2.wav`);
+    audioCell4.innerHTML += createAudioHTML(`${prefix}${models[3]}${i}-3.wav`);
+
+    let audioCell5 = row.insertCell(5);
+    audioCell5.innerHTML = createAudioHTML(`${prefix}${models[4]}${i}-0.wav`);
+    audioCell5.innerHTML += createAudioHTML(`${prefix}${models[4]}${i}-1.wav`);
+    audioCell5.innerHTML += createAudioHTML(`${prefix}${models[4]}${i}-2.wav`);
+    audioCell5.innerHTML += createAudioHTML(`${prefix}${models[4]}${i}-3.wav`);
   }
 }
 
