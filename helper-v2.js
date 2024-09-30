@@ -31,6 +31,10 @@ function clearTable(table) {
   }
 }
 
+function generateTableRandom(tableId, page) {
+  generateTable('comparison-random', page, `audio_samples/`, 10, 50);
+}
+
 
 function generateTable(tableId, page, prefix, numPerPage, numExamples) {
   let table = document.getElementById(tableId);
@@ -81,7 +85,7 @@ function generateTable(tableId, page, prefix, numPerPage, numExamples) {
 
 
 generateTable('comparison', 1, `audio_samples_diversity/`, 4, 4);
-generateTable('comparison-random', 1, `audio_samples/`, 10, 50);
+generateTableRandom('comparison-random', 1);
 
 
 function registerClicks(id, table_fn, pages) {
@@ -97,5 +101,5 @@ function registerClicks(id, table_fn, pages) {
 }
 
 $(document).ready(function() {
-  registerClicks('comparison', generateTable, 5);
+  registerClicks('comparison-random', generateTableRandom, 5);
 });
