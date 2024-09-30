@@ -1,5 +1,3 @@
-const numPerPage = 10;
-
 const models = [
   'base-',
   'base_cfg_gamma_3-',
@@ -7,8 +5,6 @@ const models = [
   'beta_15-',
   'lerp_5050-',
 ];
-
-const numExamples = 50
 
 function createAudioHTML(path, loop=false) {
   const loop_str = (loop) ? "loop" : "";
@@ -36,8 +32,7 @@ function clearTable(table) {
 }
 
 
-function generateTable(tableId, page) {
-  const prefix = `audio_samples/`;
+function generateTable(tableId, page, prefix, numPerPage, numExamples) {
   let table = document.getElementById(tableId);
   clearTable(table);
   const end_idx = Math.min(page * numPerPage, numExamples);
@@ -85,7 +80,8 @@ function generateTable(tableId, page) {
 }
 
 
-generateTable('comparison', 1);
+generateTable('comparison', 1, `audio_samples_diversity/`, 4, 4);
+generateTable('comparison-random', 1, `audio_samples/`, 10, 50);
 
 
 function registerClicks(id, table_fn, pages) {

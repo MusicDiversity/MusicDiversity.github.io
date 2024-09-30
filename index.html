@@ -52,14 +52,14 @@
       /* Style for normal state of the link */
       a {
         color: var(--button-bg);
-	      font-weight: bold; /* Makes the link text bold */
-	      text-decoration: none; /* Removes the underline */
+        font-weight: bold; /* Makes the link text bold */
+        text-decoration: none; /* Removes the underline */
       }
 
       /* Style for when the mouse hovers over the link */
       a:hover {
         color: grey;
-	      text-decoration: underline; /* Adds underline on hover */
+        text-decoration: underline; /* Adds underline on hover */
       }
 
       .title {
@@ -97,11 +97,11 @@
   <body>
     <div class="container-fluid pt-5 mt-5 shadow p-5 mb-5 bg-dark rounded">
       <div class="text-center title">
-        <h1>Music Diversity</h1>
+        <h1>Diversity-Rewarded CFG Distillation</h1>
         <br>
       </div>
       <p>
-        Abstract.
+        Generative models are transforming creative domains such as music generation, with inference-time strategies like Classifier-Free Guidance (CFG) playing a crucial role. However, CFG doubles inference cost while limiting originality and diversity across generated contents. In this paper, we introduce diversity-rewarded CFG distillation, a novel finetuning procedure that distills the strengths of CFG while addressing its limitations. Our approach optimises two training objectives: (1) a distillation objective, encouraging the model alone (without CFG) to imitate the CFG-augmented predictions, and (2) an RL objective with a diversity reward, promoting the generation of diverse outputs for a given prompt. By finetuning, we  learn  model  weights  with  the  ability  to  generate  high-quality  and  diverse outputs, without any inference overhead. This also unlocks the potential of weight-based model merging strategies: by interpolating between the weights of two models (the first focusing on quality, the second on diversity), we can control the quality-diversity trade-off at deployment time, and even further boost performance. We  conduct  extensive  experiments  on  the MusicLM text-to-music generative model, where our approach surpasses CFG in terms of quality-diversity Pareto optimality. According to human evaluators, our finetuned-then-merged model generates samples with higher quality and higher diversity than the base model augmented with CFG.
       <br>
       </p>
       <br>
@@ -114,7 +114,7 @@
     </div>
 
     <div class="container-fluid pt-5 mt-5 shadow p-5 mb-5 bg-dark rounded">
-      <h3>Comparing Base and RL-Finetuned Models. Examples randomly sampled from human evaluations.</h3>
+      <h3>Comparing the diversity of generations across different models. </h3>
       <div class="container pt-1">
         <div class="table-responsive pt-1">
           <table
@@ -125,7 +125,31 @@
               <tr>
                 <th>Caption</th>
                 <th style="text-align: center">BASE</th>
-                <th style="text-align: center">BASE CFG</th>
+                <th style="text-align: center">CFG</th>
+                <th style="text-align: center">BETA 0</th>
+                <th style="text-align: center">BETA 15</th>
+                <th style="text-align: center">LERP 50/50</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid pt-5 mt-5 shadow p-5 mb-5 bg-dark rounded">
+      <h3>Examples randomly sampled from human evaluations.</h3>
+      <div class="container pt-1">
+        <div class="table-responsive pt-1">
+          <table
+            class="table pt-1"
+            id="comparison-random"
+          >
+            <thead>
+              <tr>
+                <th>Caption</th>
+                <th style="text-align: center">BASE</th>
+                <th style="text-align: center">CFG</th>
                 <th style="text-align: center">BETA 0</th>
                 <th style="text-align: center">BETA 15</th>
                 <th style="text-align: center">LERP 50/50</th>
