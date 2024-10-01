@@ -6,6 +6,11 @@ const models = [
   'lerp_5050-',
 ];
 
+const numExamples = 54
+const numPerPage = 9
+const prefix = 'audio_samples/'
+
+
 function createAudioHTML(path, loop=false) {
   const loop_str = (loop) ? "loop" : "";
   return `<audio controls controlslist="nodownload noplaybackrate" ${loop_str} class="px-1"> <source src=${path} type="audio/wav"></audio>`;
@@ -31,12 +36,8 @@ function clearTable(table) {
   }
 }
 
-function generateTableRandom(tableId, page) {
-  generateTable('comparison-random', page, `audio_samples/`, 10, 50);
-}
 
-
-function generateTable(tableId, page, prefix, numPerPage, numExamples) {
+function generateTable(tableId, page) {
   let table = document.getElementById(tableId);
   clearTable(table);
   const end_idx = Math.min(page * numPerPage, numExamples);
@@ -84,8 +85,7 @@ function generateTable(tableId, page, prefix, numPerPage, numExamples) {
 }
 
 
-generateTable('comparison', 1, `audio_samples_diversity/`, 4, 4);
-generateTableRandom('comparison-random', 1);
+generateTable('comparison-random', 1);
 
 
 function registerClicks(id, table_fn, pages) {
@@ -101,5 +101,5 @@ function registerClicks(id, table_fn, pages) {
 }
 
 $(document).ready(function() {
-  registerClicks('comparison-random', generateTableRandom, 5);
+  registerClicks('comparison-random', generateTable, 6);
 });
